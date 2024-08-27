@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        .calculator { max-width: 300px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        .checkboxes label { display: block; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculadora</h2>
+        <label for="input1">Número 1</label>
+        <input id="input1" type="number" value="0">
+
+        <label for="input2">Número 2</label>
+        <input id="input2" type="number" value="0">
+
+        <div class="checkboxes">
+            <label><input type="checkbox" id="checkbox1"> Suma</label>
+            <label><input type="checkbox" id="checkbox2"> Resta</label>
+            <label><input type="checkbox" id="checkbox3"> Multiplicación</label>
+            <label><input type="checkbox" id="checkbox4"> División</label>
+        </div>
+
+        <button onclick="calculate(handleResult)">Calcular</button>
+
+        <h3>Resultado</h3>
+        <div id="result">0</div>
+    </div>
+
+    <script>
+        // JSON de configuración
+        const calculatorConfig = {
+            "inputs": [
+                { "id": "input1", "type": "number", "label": "Número 1", "value": 0 },
+                { "id": "input2", "type": "number", "label": "Número 2", "value": 0 }
+            ],
+            "checkboxes": [
+                { "id": "checkbox1", "label": "Suma", "checked": false },
+                { "id": "checkbox2", "label": "Resta", "checked": false },
+                { "id": "checkbox3", "label": "Multiplicación", "checked": false },
+                { "id": "checkbox4", "label": "División", "checked": false }
+            ],
+            "result": { "label": "Resultado", "value": 0 }
+        };
+
+        function calculate(callback) {
+            const num1 = parseFloat(document.getElementById('input1').value);
+            const num2 = parseFloat(document.getElementById('input2').value);
+            let result = 0;
+
+            // Verificar qué checkbox está seleccionado
+            const checkboxes = document.querySelectorAll('.checkboxes input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    switch (checkbox.id) {
+                        case 'checkbox1': // Suma
+                            result = num1 + num2;
+                            break;
+                        case 'checkbox2': // Resta
+                            result = num1 - num2;
+                            break;
+                        case 'checkbox3': // Multiplicación
+                            result = num1 * num2;
+                            break;
+                        case 'checkbox4': // División
+                            result = num2 !== 0 ? num1 / num2 : 'Error: División por cero';
+                            break;
+                    }
+                }
+            });
+
+            // Mostrar resultado
+            document.getElementById('result').innerText = result;
+
+            // Ejecutar el callback, si se ha proporcionado
+            if (callback && typeof callback === 'function') {
+                callback(result);
+            }
+        }
+
+        // Ejemplo de callback
+        function handleResult(result) {
+            console.log('El resultado es:', result);
+            // Aquí puedes agregar cualquier otra acción que quieras realizar con el resultado
+        }
+    </script>
+</body>
+</html>
