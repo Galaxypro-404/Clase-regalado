@@ -1,0 +1,59 @@
+/* Estilos generales del cuerpo */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor del carrusel */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    margin: auto;
+}
+
+/* Contenedor interno del carrusel */
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Elemento del carrusel */
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Imágenes del carrusel */
+.carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* Botones de navegación */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    transform: translateY(-50%);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .prev, .next {
+        padding: 8px;
+    }
+}
