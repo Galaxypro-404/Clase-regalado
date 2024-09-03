@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animación CSS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 400px;
+        margin: 0;
+        background-color: #f0f0f0;
+    }
+    
+    .container {
+        display: flex;
+        gap: 20px; /* Espacio entre los divs */
+    }
+    
+    .box {
+        width: 50px;
+        height: 50px;
+        background-color: #3498db;
+        animation: moveUpDown 2s infinite;
+    }
+    
+    /* Definición de la animación */
+    @keyframes moveUpDown {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(500px); /* Ajusta este valor según el espacio de movimiento deseado */
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>
