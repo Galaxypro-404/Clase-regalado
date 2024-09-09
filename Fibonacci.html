@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secuencia de Fibonacci</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output {
+            white-space: pre; /* Para mantener el formato de la secuencia */
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Secuencia de Fibonacci del 1 al 89</h1>
+    <div class="output" id="fibonacciOutput"></div>
+
+    <script>
+        const outputElement = document.getElementById('fibonacciOutput');
+        let result = '';
+        let a = 1, b = 1;
+        result += a + '\n'; // Agrega el primer número de
+
+        for (let i = 2; a + b <= 89; i++) {
+            let next = a + b;
+            result += next + '\n'; // Agrega el siguiente número de asteriscos en la secuencia
+            a = b; // Actualiza a
+            b = next; // Actualiza b
+        }
+
+        outputElement.textContent = result; // Muestra el resultado en el elemento
+    </script>
+</body>
+</html>
