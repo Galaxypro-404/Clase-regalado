@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serie del Triángulo con Asteriscos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output {
+            white-space: pre; /* Para mantener el formato de los asteriscos */
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Serie del Triángulo con Asteriscos del 1 al 55</h1>
+    <div class="output" id="triangleOutput"></div>
+
+    <script>
+        const outputElement = document.getElementById('triangleOutput');
+        let result = '';
+
+        // Bucle para generar el triángulo de asteriscos
+        for (let i = 1; i <= 55; i++) {
+            result += '*'.repeat(i) + '\n'; // Añade i asteriscos en cada línea
+        }
+
+        outputElement.textContent = result; // Muestra el resultado en el elemento
+    </script>
+</body>
+</html>
